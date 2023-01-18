@@ -4,20 +4,52 @@
 
 using namespace std;
 
-int main() {
+string getPlan(){
+    string plan_name;
+    cout << "Plan Name: " << endl;
+    cin >> plan_name;
+    return plan_name;
+}
 
-    unsigned value[8];
 
-    for (int i = 0; i < 8 ; i++)
+unsigned getMonths(){
+    unsigned months;
+    cout << "Months: " << endl;
+    cin >> months;
+    return months;
+
+}
+
+
+int computeCost(string plan_name, unsigned months){
+    
+    if (plan_name == "silver")
+        {
+       if (months == 1)
+       {return 90;}
+       else
+       {return 60;}
+        }
+    else
     {
-    value[i] = i * 7;
+        if (months == 1)
+        {return 90;}
+        else if (months >= 7)
+        {return 35;}
+        else
+        {return 70;}
+
     }
 
-    assert(value[0] == 0);
-    assert(value[3] == 21);
-    assert(value[7] == 49);
+}
 
-    cout << "All tests passed!"<< endl;
+
+int main() {
+    int costs;
+    costs = computeCost(getPlan(), getMonths());
+
+    cout << "The cost of your plan is: $" << costs << endl;
+
 
     return 0;
 }
